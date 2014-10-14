@@ -58,7 +58,7 @@
  - [創建 XPM](x-bitmaps-and-x-pixmap/creating-a-pixmap.md)
  - [對窗口描繪 XPM](x-bitmaps-and-x-pixmap/drawing-a-pixmap-in-a-window.md)
  - [釋放 XPM](x-bitmaps-and-x-pixmap/freeing-a-pixmap.md)
-* [控制鼠標指針](messing-with-the-mouse-cursor/README.md)
+* [繪製鼠標指針](messing-with-the-mouse-cursor/README.md)
  - [創建和銷毀鼠標指針](messing-with-the-mouse-cursor/creating-and-destroying-a-mouse-cursor.md)
  - [設置窗口的鼠標指針](messing-with-the-mouse-cursor/setting-a-windows-mouse-cursor.md)
  - [完全示例](messing-with-the-mouse-cursor/example.md)
