@@ -1,6 +1,6 @@
 * [基本的 XCB 概念](basic-xcb-notion/README.md)
  - [X 連接](basic-xcb-notion/the-x-connection.md)
- - [請求與回覆：殺掉 Xlib 的效率](basic-xcb-notion/the-xlib-killers.md)
+ - [請求與回覆：殺掉 Xlib 效率的殺手](basic-xcb-notion/the-xlib-killers.md)
  - [圖形上下文](basic-xcb-notion/the-graphics-context.md)
  - [事件](basic-xcb-notion/event.md)
 * [上基於 XCB 的程序](using-xcb-based-programs/README.md)
