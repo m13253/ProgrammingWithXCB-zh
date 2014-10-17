@@ -18,7 +18,7 @@
 
     void xcb_disconnect(xcb_connection_t *c);
 
-####和 XCB 的比較
+####和 Xlib 的比較
 
     XOpenDisplay()      xcb_connect()
     XCloseDisplay()     xcb_disconnect()
