@@ -43,4 +43,10 @@
       return 0;
     }
 
+####Note
+應該把 `value_mask` 和 `value_list` 當作 xcb_create_gc 的原型。如果我們只想定義一個圖形上下文中的許多屬性之中的一小部分，就需要告訴 `xcb_create_gc` 什麼屬性是我們想要設置的。這就是 `value_mask` 所做的。然後我們根據 `value_mask` 來為 `value_list` 參數來設置特定的屬性值。這種情況下，我們就能用一個屬性來定義一個圖形上下文：什麼時候畫什麼。前景色默認為黑色。剩下的屬性會設置為它們的默認值。
 
+####和 Xlib 的對比
+    
+    XCreateGC ()        xcb_generate_id ()
+                        xcb_create_gc ()
