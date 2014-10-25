@@ -230,3 +230,6 @@ TODO: 使用 screen->root_depth 作為 depth 的參數。
         /* 釋放通用事件 */
         free (e);
       }
+
+      return 0;
+    }
