@@ -12,7 +12,28 @@
 
     while ((e = xcb_wait_for_event (c))) {
       switch (e->response_type & ~0x80) {
-        case XCB_EXPOSE:
-          /* 操縱暴露事件 */
+        case XCB_EXPOSE: {
+          /* 操縱暴露事件類型 */
           xcb_expose_event_t *ev = (xcb_expose_event_t *)e;
-    }
+        
+          /* ... */
+          
+          break;
+        }
+        case XCB_BUTTON_PRESS: {
+          /* 操縱按鍵按下事件類型 */
+          xcb_button_press_event_t *ev = ()
+
+          /* ... */
+
+          break;
+        }
+        default: {
+          /* 未知事件類型，無視它！ */
+          break;
+        }
+        }
+        /* 釋放通用事件 */
+        free (e);
+      }
+
