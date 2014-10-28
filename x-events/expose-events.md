@@ -13,6 +13,15 @@
 當我們接收到一個暴露事件，我們應該把事件數據從下面的結構中提取出來：
 
     typedef struct {
-        uint8_t     response_type; /* 事件類型，這裡是 XCB_EXPOSE */
-        uint8_t     pad0;
-        uint16_t    sequence;
+        uint8_t      response_type; /* 事件類型，這裡是 XCB_EXPOSE */
+        uint8_t      pad0;
+        uint16_t     sequence;
+        xcb_window_t window;        /* 接收到事件的窗口 Id */
+                                    /* 我們的應用程序被寄存到若干窗口的事件裡 */
+        uint16_t     x;             /* 窗口左上角 X 坐標 */
+        uint16_t     y;             /* 窗口左上角 Y 坐標 */
+        uint16_t     width;         /* 窗口寬度 */
+        uint16_t     height;        /* 窗口高度 */
+        uint16_t     count;
+    } xcb_expose_event_t;
+
