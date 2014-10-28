@@ -1,0 +1,13 @@
+鼠標移動事件
+===
+
+就像鼠標按鍵按下和放開事件一樣，我們同樣能控制鼠標移動事件。它們被分為兩種。一種只是單純的鼠標移動，一種是拖動。以下掩碼可以在創建窗口時添加：
+
+- XCB_EVENT_MASK_POINTER_MOTION     鼠標移動事件
+- XCB_EVENT_MASK_BUTTON_MOTION      鼠標按鍵按下事件，這裡可以是一個或多個按鍵被按下
+- XCB_EVENT_MASK_BUTTON_1_MOTION    和 XCB_EVENT_MASK_BUTTON_MOTION，不過僅限於第一個按鍵被按下
+- XCB_EVENT_MASK_BUTTON_2_MOTION
+  XCB_EVENT_MASK_BUTTON_3_MOTION 
+  XCB_EVENT_MASK_BUTTON_4_MOTION
+  XCB_EVENT_MASK_BUTTON_5_MOTION
+  和 XCB_EVENT_MASK_BUTTON_1_MOTION 類似。
