@@ -32,3 +32,12 @@
       xcb_generic_event_t *e;
       uint32_t             mask = 0;
       uint32_t             values[2];
+
+      c = xcb_connect (NULL, NULL);
+
+      screen = xcb_setup_roots_iterator (xcb_get_setup (c));
+
+      win = xcb_generate_id (c);
+
+      mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
+      values[0] = screen->
