@@ -19,7 +19,7 @@
       printf ("Modifier mask: ");
       for (mod = mods ; mask; mask >>= 1, mod++)
         if (mask & 1)
-          print(*mod);
+          printf(*mod);
       putchar ('\n');
     }
 
@@ -108,5 +108,37 @@
                    ev->event, ev->event_x, ev->event_y);
           break;
         }
-        case XCB_LEAVE_NOTIFY:
+        case XCB_LEAVE_NOTIFY: {
+          xcb_leave_notify_event_t *ev = (xcb_leave_notify_event_t *)e;
 
+          printf ("Mouse left in window %ld, at coordinates (%d, %d)\n",
+                   ev->event, ev->event_x, ev->event_y);
+          break;
+        }
+        case XCB_KEY_PRESS: {
+          xcb_key_press_event_t *ev = (xcb_key_press_event_t *)e;
+          print_modifiers(ev->state);
+
+          printf ("Key pressed in window %ld\n",
+                  ev->event);
+          break;
+        }
+        case XCB_KEY_RELEASE: {
+          xcb_key_release_event_t *ev = (xcb_key_release_event_t *)e;
+          print_modifiers(ev->state);
+
+          printf ("Key released in window %ld\n",
+                  ev->event);
+          break;
+        }
+        default:
+          /* 未知事件類型，忽略它 */
+          printf("Unknown event: %d\n", e->response_type);
+          break;
+        }
+        /* 釋放通用事件 */
+        free(e);
+      }
+
+      return 0;
+    }
