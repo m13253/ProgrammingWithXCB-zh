@@ -32,7 +32,7 @@
  - [根、父和子窗口](windows-hierarchy/root-parent-and-child-windows.md)
  - [事件傳輸](windows-hierarchy/events-propagation.md)
 * [與窗口管理器的互動](interacting-with-wm/README.md)
- - [窗口特性](interacting-with-wm/window-properties.md)
+ - [窗口屬性](interacting-with-wm/window-properties.md)
  - [設置窗口和圖標的名稱](interacting-with-wm/setting-the-window-name-and-icon-name.md)
  - [設置默認的窗口大小](interacting-with-wm/setting-preferred-window-sizes.md)
  - [設置各種傳給窗口管理器的提示](interacting-with-wm/setting-miscellaneous-wm-hints.md)
