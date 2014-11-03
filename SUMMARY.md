@@ -39,7 +39,7 @@
  - [設置應用的圖標](interacting-with-wm/setting-apps-icon.md)
  - [遵守刪除窗口的協議](interacting-with-wm/obeying-the-delete-window-protocol.md)
 * [簡易的窗口操作](simple-window-operations/README.md)
- - [映射和取消映射窗口](simple-window-operations/mapping-and-unmapping.md)
+ - [映射和反映射窗口](simple-window-operations/mapping-and-unmapping.md)
  - [配置窗口](simple-window-operations/configuring-a-window.md)
  - [在屏幕中移動窗口](simple-window-operations/moving-a-window-around-the-screen.md)
  - [調整窗口大小](simple-window-operations/resizing-a-window.md)

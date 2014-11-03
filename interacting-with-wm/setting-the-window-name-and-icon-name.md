@@ -30,4 +30,32 @@
                          win,                           /* 窗口 Id */
                          screen->root,                  /* 父窗口 */
                          0, 0,                          /* x, y */
-                         250, 250,                      /* 寬和高 */)
+                         250, 250,                      /* 寬和高 */
+                         10,                            /* 邊框寬 */
+                         XCB_WINDOW_CLASS_INPUT_OUTPUT, /* class */
+                         screen->root_visual,           /* visual */
+                         0, NULL);                      /* 掩碼，不使用 */
+
+      /* 設置窗口標題 */
+      xcb_change_property (c, XCB_PROP_MODE_REPLACE, win,
+                           WM_NAME, STRING, 8,
+                           strlen (title), title);
+
+      /* 設置窗口圖標標題 */
+      xcb_change_property (c, XCB_PROP_MODE_REPLACE, win,
+                           WM_ICON_NAME, STRING, 8,
+                           strlen(title_icon), title_icon);
+
+      xcb_map_window (c, win);
+
+      xcb_fluch (c);
+
+      while (1) {}
+
+      return 0;
+    }
+
+####Note
+使用 `atom` 需要我們的程序在編譯的時候連接 `xcb_atom` ，那麼我們用這條命令：
+
+    gcc prog.c -o prog `pkg-config --cflags --libs xcb_atom`
