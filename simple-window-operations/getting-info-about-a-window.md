@@ -118,3 +118,59 @@ XCB 使用兩個函數填滿這個結構：
     free (trans);
     free (tree);
     free (geom);
+
+當然， geom, tree 和 trans 都需要被釋放。
+
+這個工作有些困難，但 XCB 是一個非常低級的庫。
+
+TODO: the utilization of these functions should be a prog, which displays the coordinates of the window.
+
+這是另一個提供窗口信息的結構：
+
+    typedef struct {
+        uint8_t         response_type;
+        uint8_t         backing_store;
+        uint16_t        sequence;
+        uint32_t        length;
+        xcb_visualid_t  visual;                 /* visual */
+        uint16_t        _class;
+        uint8_t         bit_gravity;
+        uint8_t         win_gravity;
+        uint32_t        backing_planes;
+        uint32_t        backing_pixel;
+        uint8_t         save_under;
+        uint8_t         map_is_installed;
+        uint8_t         map_state;              /* 窗口映射狀態 */
+        uint8_t         override_redirect;
+        xcb_colormap_t  colormap;               /* 窗口的顏色映射 */
+        uint32_t        all_event_masks;
+        uint32_t        your_event_mask;
+        uint16_t        do_not_propagate_mask;
+    } xcb_get_window_attributes_reply_t;
+
+XCB 使用兩個函數填滿這個結構：
+
+    xcb_get_window_attributes_cookie_t xcb_get_window_attributes       (xcb_connection_t                    *c,
+                                                                        xcb_window_t                         window);
+    xcb_get_window_attributes_reply_t *xcb_get_window_attributes_reply (xcb_connection_t                    *c,
+                                                                        xcb_get_window_attributes_cookie_t   cookie,
+                                                                        xcb_generic_error_t                **e);
+
+示例：
+
+    xcb_connection_t                  *c;
+    xcb_drawable_t                     win;
+    xcb_get_window_attributes_reply_t *attr;
+
+    /* 初始化 c 和 win */
+
+    attr = xcb_get_window_attributes_reply (c, xcb_get_window_attributes (c, win), NULL);
+
+    if (!attr)
+      return 0;
+
+    /* 對 attr 進行操作 */
+
+    free (attr);
+
+和 geom 一樣，attr 也要釋放。
