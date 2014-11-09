@@ -1,0 +1,1365 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>分配和釋放顏色映射 | </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.1.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    
+    <link rel="next" href="../using-colors-to-paint-the-window/allocating-and-freeing-color-entry.html" />
+    
+    
+    <link rel="prev" href="../using-colors-to-paint-the-window/color-maps.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+
+        
+    <div class="book" data-level="12.2" data-basepath=".." data-revision="1415502450786">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="basic-xcb-notion/README.html">
+            
+                
+                    <a href="../basic-xcb-notion/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         基本的 XCB 概念
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="basic-xcb-notion/the-x-connection.html">
+            
+                
+                    <a href="../basic-xcb-notion/the-x-connection.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         X 連接
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="basic-xcb-notion/the-xlib-killers.html">
+            
+                
+                    <a href="../basic-xcb-notion/the-xlib-killers.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         請求與回覆：殺掉 Xlib 效率的殺手
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="basic-xcb-notion/the-graphics-context.html">
+            
+                
+                    <a href="../basic-xcb-notion/the-graphics-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         圖形上下文
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.4" data-path="basic-xcb-notion/event.html">
+            
+                
+                    <a href="../basic-xcb-notion/event.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                         事件
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="using-xcb-based-programs/README.html">
+            
+                
+                    <a href="../using-xcb-based-programs/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         上基於 XCB 的程序
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="connection-to-an-X-server/README.html">
+            
+                
+                    <a href="../connection-to-an-X-server/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         建立和關閉到 X 服務器的連接
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="checking-info-about-a-connection/README.html">
+            
+                
+                    <a href="../checking-info-about-a-connection/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         檢查連接的基本信息
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="hello-world/README.html">
+            
+                
+                    <a href="../hello-world/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         創建一個窗口——泥嚎，世界
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="drawing-in-a-window/README.html">
+            
+                
+                    <a href="../drawing-in-a-window/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         在窗口內繪圖
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="6.1" data-path="drawing-in-a-window/allocating-a-graphics-context.html">
+            
+                
+                    <a href="../drawing-in-a-window/allocating-a-graphics-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                         給一個圖形上下文分配內存
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.2" data-path="drawing-in-a-window/changing-the-attr-of-a-graphics-context.html">
+            
+                
+                    <a href="../drawing-in-a-window/changing-the-attr-of-a-graphics-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                         改變圖形上下文的屬性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.3" data-path="drawing-in-a-window/drawing-primitives.html">
+            
+                
+                    <a href="../drawing-in-a-window/drawing-primitives.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                         畫點東西：點、線、矩形、還有圓
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="x-events/README.html">
+            
+                
+                    <a href="../x-events/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         X 事件
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="x-events/registering-using-event-masks.html">
+            
+                
+                    <a href="../x-events/registering-using-event-masks.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         使用事件掩碼寄存事件類型
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.2" data-path="x-events/receiving-events.html">
+            
+                
+                    <a href="../x-events/receiving-events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                         接收事件：寫一個處理事件的循環
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.3" data-path="x-events/expose-events.html">
+            
+                
+                    <a href="../x-events/expose-events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                         暴露事件
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4" data-path="x-events/getting-user-input.html">
+            
+                
+                    <a href="../x-events/getting-user-input.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                         取得用戶輸入
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.4.1" data-path="x-events/mouse-press-and-release-events.html">
+            
+                
+                    <a href="../x-events/mouse-press-and-release-events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.1.</b>
+                        
+                         鼠標的按下和放開事件
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4.2" data-path="x-events/movement-events.html">
+            
+                
+                    <a href="../x-events/movement-events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.2.</b>
+                        
+                         鼠標移動事件
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4.3" data-path="x-events/enter-and-leave-events.html">
+            
+                
+                    <a href="../x-events/enter-and-leave-events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.3.</b>
+                        
+                         鼠標指針進入和離開區域事件
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4.4" data-path="x-events/keyboard-focus.html">
+            
+                
+                    <a href="../x-events/keyboard-focus.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.4.</b>
+                        
+                         鍵盤焦點
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4.5" data-path="x-events/keyboard-press-and-release-events.html">
+            
+                
+                    <a href="../x-events/keyboard-press-and-release-events.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.5.</b>
+                        
+                         鍵盤按鍵按下和放開事件
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.5" data-path="x-events/example.html">
+            
+                
+                    <a href="../x-events/example.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                         完全示例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="text-and-fonts/README.html">
+            
+                
+                    <a href="../text-and-fonts/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         操縱文字和字體
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="text-and-fonts/the-font-structure.html">
+            
+                
+                    <a href="../text-and-fonts/the-font-structure.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         字體結構
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="text-and-fonts/opening-a-font.html">
+            
+                
+                    <a href="../text-and-fonts/opening-a-font.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         打開字體
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="text-and-fonts/assigning-a-font-to-a-graphic-context.html">
+            
+                
+                    <a href="../text-and-fonts/assigning-a-font-to-a-graphic-context.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         分配一個字體到圖形上下文
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="text-and-fonts/drawing-text-in-a-drawable.html">
+            
+                
+                    <a href="../text-and-fonts/drawing-text-in-a-drawable.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         在可繪圖的區域描繪字體
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.5" data-path="text-and-fonts/example.html">
+            
+                
+                    <a href="../text-and-fonts/example.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                         完全示例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" data-path="windows-hierarchy/README.html">
+            
+                
+                    <a href="../windows-hierarchy/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         窗口層次
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" data-path="windows-hierarchy/root-parent-and-child-windows.html">
+            
+                
+                    <a href="../windows-hierarchy/root-parent-and-child-windows.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                         根、父和子窗口
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.2" data-path="windows-hierarchy/events-propagation.html">
+            
+                
+                    <a href="../windows-hierarchy/events-propagation.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                         事件傳輸
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" data-path="interacting-with-wm/README.html">
+            
+                
+                    <a href="../interacting-with-wm/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         與窗口管理器的互動
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" data-path="interacting-with-wm/window-properties.html">
+            
+                
+                    <a href="../interacting-with-wm/window-properties.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                         窗口屬性
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.2" data-path="interacting-with-wm/setting-the-window-name-and-icon-name.html">
+            
+                
+                    <a href="../interacting-with-wm/setting-the-window-name-and-icon-name.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.2.</b>
+                        
+                         設置窗口和圖標的名稱
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.3" data-path="interacting-with-wm/setting-preferred-window-sizes.html">
+            
+                
+                    <a href="../interacting-with-wm/setting-preferred-window-sizes.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.3.</b>
+                        
+                         設置默認的窗口大小
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.4" data-path="interacting-with-wm/setting-miscellaneous-wm-hints.html">
+            
+                
+                    <a href="../interacting-with-wm/setting-miscellaneous-wm-hints.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.4.</b>
+                        
+                         設置各種傳給窗口管理器的提示
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.5" data-path="interacting-with-wm/setting-apps-icon.html">
+            
+                
+                    <a href="../interacting-with-wm/setting-apps-icon.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.5.</b>
+                        
+                         設置應用的圖標
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10.6" data-path="interacting-with-wm/obeying-the-delete-window-protocol.html">
+            
+                
+                    <a href="../interacting-with-wm/obeying-the-delete-window-protocol.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.6.</b>
+                        
+                         遵守刪除窗口的協議
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="simple-window-operations/README.html">
+            
+                
+                    <a href="../simple-window-operations/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                         簡易的窗口操作
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="11.1" data-path="simple-window-operations/mapping-and-unmapping.html">
+            
+                
+                    <a href="../simple-window-operations/mapping-and-unmapping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                         映射和反映射窗口
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.2" data-path="simple-window-operations/configuring-a-window.html">
+            
+                
+                    <a href="../simple-window-operations/configuring-a-window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.2.</b>
+                        
+                         配置窗口
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.3" data-path="simple-window-operations/moving-a-window-around-the-screen.html">
+            
+                
+                    <a href="../simple-window-operations/moving-a-window-around-the-screen.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.3.</b>
+                        
+                         在屏幕中移動窗口
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.4" data-path="simple-window-operations/resizing-a-window.html">
+            
+                
+                    <a href="../simple-window-operations/resizing-a-window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.4.</b>
+                        
+                         調整窗口大小
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.5" data-path="simple-window-operations/raise-and-lower.html">
+            
+                
+                    <a href="../simple-window-operations/raise-and-lower.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.5.</b>
+                        
+                         調整窗口堆疊的命令：提升和下降
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.6" data-path="simple-window-operations/iconifying-and-de-iconifying.html">
+            
+                
+                    <a href="../simple-window-operations/iconifying-and-de-iconifying.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.6.</b>
+                        
+                         最小化和取消最小化
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11.7" data-path="simple-window-operations/getting-info-about-a-window.html">
+            
+                
+                    <a href="../simple-window-operations/getting-info-about-a-window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.7.</b>
+                        
+                         取得窗口信息
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12" data-path="using-colors-to-paint-the-window/README.html">
+            
+                
+                    <a href="../using-colors-to-paint-the-window/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                         使用顏色來對窗口繪圖
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="12.1" data-path="using-colors-to-paint-the-window/color-maps.html">
+            
+                
+                    <a href="../using-colors-to-paint-the-window/color-maps.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.1.</b>
+                        
+                         顏色映射
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="12.2" data-path="using-colors-to-paint-the-window/allocating-and-freeing-color-maps.html">
+            
+                
+                    <a href="../using-colors-to-paint-the-window/allocating-and-freeing-color-maps.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.2.</b>
+                        
+                         分配和釋放顏色映射
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.3" data-path="using-colors-to-paint-the-window/allocating-and-freeing-color-entry.html">
+            
+                
+                    <a href="../using-colors-to-paint-the-window/allocating-and-freeing-color-entry.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.3.</b>
+                        
+                         分配和釋放顏色記錄
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="12.4" data-path="using-colors-to-paint-the-window/drawing-with-a-color.html">
+            
+                
+                    <a href="../using-colors-to-paint-the-window/drawing-with-a-color.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.4.</b>
+                        
+                         使用顏色描繪
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13" data-path="x-bitmaps-and-x-pixmap/README.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                         X 位圖和 XPM
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="13.1" data-path="x-bitmaps-and-x-pixmap/intro.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/intro.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.1.</b>
+                        
+                         什麼是 X 位圖和 XPM ？
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.2" data-path="x-bitmaps-and-x-pixmap/loading-a-bitmap-from-a-file.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/loading-a-bitmap-from-a-file.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.2.</b>
+                        
+                         從文件讀取位圖
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.3" data-path="x-bitmaps-and-x-pixmap/drawing-a-bitmap-in-a-window.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/drawing-a-bitmap-in-a-window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.3.</b>
+                        
+                         對窗口描繪位圖
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.4" data-path="x-bitmaps-and-x-pixmap/creating-a-pixmap.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/creating-a-pixmap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.4.</b>
+                        
+                         創建 XPM
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.5" data-path="x-bitmaps-and-x-pixmap/drawing-a-pixmap-in-a-window.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/drawing-a-pixmap-in-a-window.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.5.</b>
+                        
+                         對窗口描繪 XPM
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="13.6" data-path="x-bitmaps-and-x-pixmap/freeing-a-pixmap.html">
+            
+                
+                    <a href="../x-bitmaps-and-x-pixmap/freeing-a-pixmap.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.6.</b>
+                        
+                         釋放 XPM
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14" data-path="messing-with-the-mouse-cursor/README.html">
+            
+                
+                    <a href="../messing-with-the-mouse-cursor/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.</b>
+                        
+                         繪製鼠標指針
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="14.1" data-path="messing-with-the-mouse-cursor/creating-and-destroying-a-mouse-cursor.html">
+            
+                
+                    <a href="../messing-with-the-mouse-cursor/creating-and-destroying-a-mouse-cursor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.1.</b>
+                        
+                         創建和銷毀鼠標指針
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14.2" data-path="messing-with-the-mouse-cursor/setting-a-windows-mouse-cursor.html">
+            
+                
+                    <a href="../messing-with-the-mouse-cursor/setting-a-windows-mouse-cursor.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.2.</b>
+                        
+                         設置窗口的鼠標指針
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="14.3" data-path="messing-with-the-mouse-cursor/example.html">
+            
+                
+                    <a href="../messing-with-the-mouse-cursor/example.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>14.3.</b>
+                        
+                         完全示例
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="15" data-path="traslation-of-xlib/README.html">
+            
+                
+                    <a href="../traslation-of-xlib/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>15.</b>
+                        
+                         基礎 Xlib 函數和宏的轉譯
+                    </a>
+                
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" ></a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_42">
+                    
+                        <h1 id="">分配和釋放顏色映射</h1>
+<p>當你使用 XCB 繪圖時，你可以在你的窗口中選擇使用屏幕基礎的顏色映射來顯示或者分配一個新的顏色映射給你的窗口。在 latter 情況下，鼠標每次移動到你的窗口之內，屏幕顏色映射將會被你的窗口的顏色映射重寫，然後你將看到其他的窗口都會變色，一些還凍結了。事實上，這只會在你執行帶 <code>-install</code> 命令執行 X 應用時發生。</p>
+<p>在 XCB 中，一個顏色映射是（通常和 X 中一樣）一個 Id ：</p>
+<pre><code>typedef uint32_t xcb_colormap_t;
+</code></pre><p>為了訪問屏幕的默認顏色映射，你需要設置 <code>default_colormap</code> 為 <code>xcb_screen_t</code> 結構：</p>
+<pre><code>#include &lt;stdio.h&gt;
+
+#include &lt;xcb/xcb.h&gt;
+
+int
+main()
+{
+  xcb_connection_t *c;
+  xcb_screen_t     *screen;
+  xcb_colormap_t    colormap;
+
+  c = xcb_connect (NULL, NULL);
+  screen = xcb_setup_roots_iterator (xcb_get_setup (c)).data;
+
+  colormap = screen-&gt;default_colormap;
+
+  return 0;
+}
+</code></pre><p>這將返回第一個屏幕的默認顏色映射（重複，記住 X 服務器可能支持各種不同的屏幕）。</p>
+<p>要分配一個新的顏色映射，就像下面那樣做。我們首先用這個函數請求 X 服務器給我們的顏色映射來個 Id ：</p>
+<pre><code>xcb_colormap_t xcb_generate_id (xcb_connection_t *c);
+</code></pre><p>然後，我們使用這個函數創建顏色映射：</p>
+<pre><code>xcb_void_cookie_t xcb_create_colormap (xcb_connection_t *c,
+                                       uint8_t           alloc,   /* 要分配的顏色映射記錄 （不分配或者全部分配）*/
+                                       xcb_colormap_t    mid,     /* 顏色映射 Id */
+                                       xcb_window_t      window,  /* 要被創建顏色映射的窗口 */
+                                       xcb_visualid_t    visual); /* 屏幕支持的 visual Id */ 
+</code></pre><p>示例：</p>
+<pre><code>#include &lt;xcb/xcb.h&gt;
+
+int
+main ()
+{
+  xcb_connection_t *c;
+  xcb_screen_t     *screen;
+  xcb_window_t      win;
+  xcb_colormap_t    cmap;
+
+  c = xcb_connect (NULL, NULL);
+  screen = xcb_setup_roots_iterator (xcb_get_setup (c)).data;
+
+  /* 在此創建窗口 */
+
+  cmap = xcb_generate_id (c);
+  xcb_create_colormap (c, XCB_COLORMAP_ALLOC_NONE, cmap, win, screen-&gt;root_visual);
+
+  return 0;
+}
+</code></pre><h4 id="note">Note</h4>
+<p><code>window</code> 參數只是用來允許 X 服務器對給出的屏幕創建顏色映射。我們能用這個顏色映射傳入任意同屏幕的窗口。</p>
+<p>要釋放顏色映射，使用這個函數：</p>
+<pre><code>xcb_void_cookie_t xcb_free_colormap (xcb_connection_t *c,
+                                     xcb_colormap_t cmap);  /* 顏色映射 */
+</code></pre><h4 id="-xlib-">和 Xlib 的比較</h4>
+<pre><code>XCreateColormap ()          xcb_generate_id ()
+                            xcb_create_colormap ()
+XFreeColormap ()            xcb_free_colormap ()
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../using-colors-to-paint-the-window/color-maps.html" class="navigation navigation-prev " aria-label="Previous page: 顏色映射"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../using-colors-to-paint-the-window/allocating-and-freeing-color-entry.html" class="navigation navigation-next " aria-label="Next page: 分配和釋放顏色記錄"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
